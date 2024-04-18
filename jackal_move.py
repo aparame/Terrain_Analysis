@@ -90,7 +90,7 @@ class JackalController:
 
 def main():
     try:
-        path = 'spd_0.500.csv'
+        path = 'spd_1.500.csv'
         import threading
         jackal_controller = JackalController(path)
         thread1 = threading.Thread(target=jackal_controller.run)

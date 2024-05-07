@@ -75,10 +75,11 @@ class JackalController:
                 self.my_twist.linear.x = 0.0
                 self.my_twist.angular.z = 0.0
             else:
-                self.my_twist.linear.x = float(self.path[4:9])
+                self.my_twist.linear.x = float(self.path[8:11])
                 self.my_twist.angular.z = 0.0
 
-            print("X Position:",self.odom.pose.pose.position.x)    
+            print("X Position:",self.odom.pose.pose.position.x)
+            print("Linear Velocity:",self.my_twist.linear.x)        
             self.pub.publish(self.my_twist)
 
             self.r.sleep()
@@ -90,7 +91,7 @@ class JackalController:
 
 def main():
     try:
-        path = 'spd_1.500.csv'
+        path = 'csv/264_0.69.csv'
         import threading
         jackal_controller = JackalController(path)
         thread1 = threading.Thread(target=jackal_controller.run)
